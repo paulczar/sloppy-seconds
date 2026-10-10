@@ -1,0 +1,13 @@
+{
+  "id": 12345,
+  "name": "photocraft",
+  "full_name": "storytold/photocraft",
+  "stargazers_count": 21000,
+  "forks_count": 890,
+  "open_issues_count": 42,
+  "pushed_at": "2026-10-09T12:00:00Z",
+  "archived": false,
+  "license": {"key": "apache-2.0", "name": "Apache License 2.0", "spdx_id": "Apache-2.0"},
+  "language": "Rust",
+  "default_branch": "main"
+}

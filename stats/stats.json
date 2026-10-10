@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-10-10T16:22:47.940Z",
+  "entries": {
+    "ariec61850": {
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "pushed_at": "",
+      "archived": false,
+      "license": null,
+      "language": null,
+      "default_branch": "main",
+      "latest_release": null,
+      "fetched_at": "2026-10-10T16:22:47.938Z",
+      "stale": true
+    },
+    "assettocorsa-competizione-server": {
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "pushed_at": "",
+      "archived": false,
+      "license": null,
+      "language": null,
+      "default_branch": "main",
+      "latest_release": null,
+      "fetched_at": "2026-10-10T16:22:47.939Z",
+      "stale": true
+    },
+    "bl2-re-based": {
+      "stars": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "pushed_at": "",
+      "archived": false,
+      "license": null,
+      "language": null,
+      "default_branch": "main",
+      "latest_release": null,
+      "fetched_at": "2026-10-10T16:22:47.940Z",
+      "stale": true
+    }
+  }
+}

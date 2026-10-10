@@ -27,6 +27,21 @@ docs/                 # contributor + data-schema docs
 7. Keep the site fully static: no server-side code, no client-side API calls beyond the bundled JSON. Everything must work from `gh-pages` + `raw.githubusercontent`.
 8. Screenshots: prefer linking out to the project's own repo assets or use a `screenshot` field that we mirror locally only with the project's permission (their repo is open-source, license-check first).
 
+## Committing
+- **Commit on every major change** — a "major change" is any user-visible feature, fix, or data update. Don't batch unrelated changes into one commit.
+- Conventional commit format: `feat:`, `fix:`, `chore:`, `docs:`, `ci:`
+- Update `CHANGELOG.md` with each user-visible change (one line per entry, newest first).
+- Generated files (`stats/stats.json`) get their own `chore:` commit from CI — don't mix them with manual changes.
+
+## Changelog
+Maintain `CHANGELOG.md` at the repo root. Format:
+```
+## [unreleased]
+### Added / Changed / Fixed / Removed
+- one-line description (link to commit if useful)
+```
+Roll `[unreleased]` into a dated section when deploying.
+
 ## Verification
 - `npm run build` must succeed and produce a deployable `dist/`.
 - Schema validation (see PLAN.md Phase 1) must pass for every `apps/*.md`.

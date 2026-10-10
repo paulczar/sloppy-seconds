@@ -1,0 +1,30 @@
+---
+import StatChip from './StatChip.astro';
+import { withBase } from '../lib/url';
+import type { EntryWithStats } from '../lib/types';
+
+interface Props {
+  entry: EntryWithStats;
+}
+const { entry } = Astro.props;
+const { stats } = entry;
+---
+
+<a href={withBase(`/app/${entry.slug}/`)} class="app-card">
+  <div class="app-card__header">
+    <h3 class="app-card__name">{entry.name}</h3>
+    <span class={`status-badge status-badge--${entry.status}`}>{entry.status}</span>
+  </div>
+  <p class="app-card__mapping">
+    <span class="app-card__original">{entry.modelled_on}</span>
+    <span class="app-card__arrow">→</span>
+    <span class="app-card__reimpl">{entry.name}</span>
+  </p>
+  <div class="app-card__chips">
+    <StatChip label="★" value={stats ? stats.stars : null} />
+    <StatChip label="forks" value={stats ? stats.forks : null} />
+    <StatChip label="license" value={entry.license} />
+    <StatChip label="lang" value={entry.language} />
+  </div>
+  {!stats && <p class="app-card__pending">stats pending</p>}
+</a>

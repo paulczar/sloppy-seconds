@@ -1,0 +1,32 @@
+---
+import type { Entry } from '../lib/schema';
+
+interface Props {
+  entry: Entry;
+}
+const { entry } = Astro.props;
+---
+
+<section class="provenance-panel">
+  <h2>Provenance</h2>
+  <dl>
+    <dt>Type</dt>
+    <dd>{entry.type}</dd>
+    <dt>AI-assisted</dt>
+    <dd>{entry.ai_assisted}</dd>
+    <dt>Cleanroom claim</dt>
+    <dd>{entry.cleanroom_claim}</dd>
+    {entry.inputs_claimed.length > 0 && (
+      <>
+        <dt>Inputs claimed</dt>
+        <dd>{entry.inputs_claimed.join(', ')}</dd>
+      </>
+    )}
+    {entry.claim_source && (
+      <>
+        <dt>Claim source</dt>
+        <dd><a href={entry.claim_source} target="_blank" rel="noopener noreferrer">{entry.claim_source}</a></dd>
+      </>
+    )}
+  </dl>
+</section>

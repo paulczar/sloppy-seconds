@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string;
+  value: string | number | null;
+}
+const { label, value } = Astro.props;
+---
+
+{value !== null && (
+  <span class="stat-chip">
+    <span class="stat-chip__label">{label}</span>
+    <span class="stat-chip__value">{typeof value === 'number' ? value.toLocaleString() : value}</span>
+  </span>
+)}

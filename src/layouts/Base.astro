@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+const siteName = 'sloppy-seconds';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — {siteName}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="/" class="site-title">{siteName}</a>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>sloppy-seconds — a directory of AI-assisted open-source replacements</p>
+    </footer>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../lib/url';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -16,7 +17,7 @@ const siteName = 'sloppy-seconds';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} — {siteName}</title>
     {description && <meta name="description" content={description} />}
-    <link rel="stylesheet" href={withBase('/styles/global.css')} />
+
   </head>
   <body>
     <nav class="site-nav">

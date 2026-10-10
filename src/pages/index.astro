@@ -1,22 +1,45 @@
 ---
-import "../styles/global.css";
+import Base from '../layouts/Base.astro';
+import AppCard from '../components/AppCard.astro';
+import { loadEntries, categoryCounts, totalStars } from '../lib/entries';
+import { withBase } from '../lib/url';
+
+const entries = await loadEntries();
+const counts = categoryCounts(entries);
+const stars = totalStars(entries);
+const vendors = new Set(entries.map(e => e.vendor)).size;
+const newest = [...entries].sort((a, b) => b.added.getTime() - a.added.getTime()).slice(0, 8);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>sloppy-seconds</title>
-    <meta
-      name="description"
-      content="A directory of AI-assisted open-source replacements for commercial and closed-source software."
-    />
-  </head>
-  <body>
-    <main>
-      <h1>sloppy-seconds</h1>
-      <p>Scaffold placeholder. Replaced in Task 6.</p>
-    </main>
-  </body>
-</html>
+<Base title="Home" description={`A directory of ${entries.length} AI-assisted open-source replacements for commercial software.`}>
+  <section class="hero">
+    <h1>sloppy-seconds</h1>
+    <p class="hero__tagline">AI-assisted open-source replacements for commercial software</p>
+    <div class="hero__counts">
+      <span><strong>{entries.length}</strong> projects</span>
+      <span>·</span>
+      <span><strong>{vendors}</strong> vendors</span>
+      <span>·</span>
+      <span><strong>{stars.toLocaleString()}</strong> stars tracked</span>
+    </div>
+  </section>
+
+  <section class="categories">
+    <h2>Categories</h2>
+    <div class="category-grid">
+      {counts.map(({ category, count }) => (
+        <a href={withBase(`/c/${category}/`)} class="category-card">
+          <span class="category-card__name">{category}</span>
+          <span class="category-card__count">{count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="newest">
+    <h2>Newest</h2>
+    <div class="card-grid">
+      {newest.map(entry => <AppCard entry={entry} />)}
+    </div>
+  </section>
+</Base>

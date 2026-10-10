@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import StatChip from '../../components/StatChip.astro';
+import ProvenancePanel from '../../components/ProvenancePanel.astro';
+import { loadEntries } from '../../lib/entries';
+import { withBase } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const entries = await loadEntries();
+  return entries.map(e => ({ params: { slug: e.slug } }));
+}
+
+const { slug } = Astro.params;
+const allEntries = await loadEntries();
+const entry = allEntries.find(e => e.slug === slug);
+if (!entry) return;
+const { stats } = entry;
+---
+
+<Base title={entry.name} description={entry.description}>
+  <nav class="breadcrumb">
+    <a href={withBase('/')}>Home</a> /
+    <a href={withBase(`/c/${entry.category}/`)}>{entry.category}</a> /
+    <span>{entry.name}</span>
+  </nav>
+
+  <header class="detail-header">
+    <h1>{entry.name}</h1>
+    <p class="detail-mapping">
+      <span>{entry.modelled_on}</span>
+      <span class="app-card__arrow">→</span>
+      <span>{entry.name}</span>
+    </p>
+    <div class="detail-chips">
+      <StatChip label="★" value={stats ? stats.stars : null} />
+      <StatChip label="forks" value={stats ? stats.forks : null} />
+      <StatChip label="license" value={entry.license} />
+      <StatChip label="lang" value={entry.language} />
+      <StatChip label="status" value={entry.status} />
+    </div>
+    {stats && <p class="as-of">as of {new Date(stats.fetched_at).toLocaleDateString()}</p>}
+    {!stats && <p class="as-of">stats pending</p>}
+  </header>
+
+  <ProvenancePanel entry={entry} />
+
+  <section class="detail-body">
+    <Fragment set:html={entry.body} />
+  </section>
+
+  <a href={entry.repo} target="_blank" rel="noopener noreferrer" class="repo-link">
+    View on GitHub →
+  </a>
+</Base>

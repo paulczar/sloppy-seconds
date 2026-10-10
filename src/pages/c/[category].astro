@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppCard from '../../components/AppCard.astro';
+import { loadEntries, categoryCounts } from '../../lib/entries';
+import { withBase } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const entries = await loadEntries();
+  const counts = categoryCounts(entries);
+  return counts.map(({ category }) => ({ params: { category } }));
+}
+
+const { category } = Astro.params;
+const allEntries = await loadEntries();
+const entries = allEntries.filter(e => e.category === category);
+---
+
+<Base title={category} description={`${entries.length} projects in the ${category} category.`}>
+  <nav class="breadcrumb">
+    <a href={withBase('/')}>Home</a> / <span>{category}</span>
+  </nav>
+  <h1>{category}</h1>
+  <p class="page-count">{entries.length} project{entries.length !== 1 ? 's' : ''}</p>
+  <div class="card-grid">
+    {entries.map(entry => <AppCard entry={entry} />)}
+  </div>
+</Base>

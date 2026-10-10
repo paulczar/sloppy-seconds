@@ -1,31 +1,29 @@
 {
-  "generated_at": "2026-10-10T16:22:47.940Z",
+  "generated_at": "2026-10-10T20:45:08.318Z",
   "entries": {
     "ariec61850": {
-      "stars": 0,
-      "forks": 0,
-      "open_issues": 0,
-      "pushed_at": "",
+      "stars": 7,
+      "forks": 3,
+      "open_issues": 20,
+      "pushed_at": "2026-10-09T22:01:37Z",
       "archived": false,
-      "license": null,
-      "language": null,
+      "license": "GPL-3.0",
+      "language": "C#",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-10-10T16:22:47.938Z",
-      "stale": true
+      "fetched_at": "2026-10-10T20:45:08.318Z"
     },
     "assettocorsa-competizione-server": {
-      "stars": 0,
+      "stars": 16,
       "forks": 0,
       "open_issues": 0,
-      "pushed_at": "",
+      "pushed_at": "2026-10-08T13:23:53Z",
       "archived": false,
-      "license": null,
-      "language": null,
+      "license": "BSD-2-Clause",
+      "language": "C",
       "default_branch": "main",
-      "latest_release": null,
-      "fetched_at": "2026-10-10T16:22:47.939Z",
-      "stale": true
+      "latest_release": "0.3.270",
+      "fetched_at": "2026-10-10T20:45:08.201Z"
     },
     "bl2-re-based": {
       "stars": 0,

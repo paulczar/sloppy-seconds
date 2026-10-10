@@ -25,13 +25,15 @@ const { stats } = entry;
         </span>
       </div>
     )}
-    <span class={`status-badge status-badge--${entry.status}`}>{entry.status}</span>
   </div>
+  <div class="app-card__sub">
+    <span class={`status-badge status-badge--${entry.status}`}>{entry.status}</span>
   <p class="app-card__mapping">
     <span class="app-card__original">{entry.modelled_on}</span>
     <span class="app-card__arrow">→</span>
     <span class="app-card__reimpl">{entry.name}</span>
   </p>
+  </div>
   <div class="app-card__chips">
     <StatChip label="license" value={entry.license} />
     <StatChip label="lang" value={entry.language} />

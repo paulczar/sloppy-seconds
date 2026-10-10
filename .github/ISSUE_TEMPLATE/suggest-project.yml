@@ -1,0 +1,69 @@
+name: Suggest a project
+description: Propose a new entry for the directory
+labels: [suggestion]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repository URL
+      description: Full GitHub URL (https://github.com/owner/repo)
+      placeholder: https://github.com/example/project
+    validations:
+      required: true
+  - type: input
+    id: modelled_on
+    attributes:
+      label: Modelled on / replaces
+      description: The commercial or closed-source product this targets
+      placeholder: Adobe Photoshop
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - creative
+        - office
+        - cad
+        - audio
+        - games
+        - os
+        - devtools
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      description: What kind of replacement is this?
+      options:
+        - cleanroom
+        - clone
+        - very-similar
+        - port
+    validations:
+      required: true
+  - type: textarea
+    id: ai_evidence
+    attributes:
+      label: Evidence of AI assistance
+      description: Link to co-author commit, README statement, or credible press coverage
+      placeholder: |
+        e.g. "README states 'built with Claude'" or link to commit with Co-authored-by: Claude line
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License
+      description: SPDX identifier (e.g., MIT, Apache-2.0, GPL-3.0)
+      placeholder: MIT
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Anything else worth mentioning (parity level, notable features, etc.)

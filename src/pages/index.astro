@@ -8,6 +8,8 @@ const entries = await loadEntries();
 const counts = categoryCounts(entries);
 const stars = totalStars(entries);
 const vendors = new Set(entries.map(e => e.vendor)).size;
+const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.stars ?? 0));
+const top = byStars.slice(0, 12);
 const newest = [...entries].sort((a, b) => b.added.getTime() - a.added.getTime()).slice(0, 8);
 ---
 
@@ -33,6 +35,13 @@ const newest = [...entries].sort((a, b) => b.added.getTime() - a.added.getTime()
           <span class="category-card__count">{count}</span>
         </a>
       ))}
+    </div>
+  </section>
+
+  <section class="top">
+    <h2>Most Popular</h2>
+    <div class="card-grid">
+      {top.map(entry => <AppCard entry={entry} />)}
     </div>
   </section>
 

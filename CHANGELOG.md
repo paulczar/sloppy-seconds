@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [unreleased]
 
 ### Added
+- GitHub-style star/fork pill badges on cards and detail pages (SVG icons, repo-header look)
 - Collapsible per-category sections on home page, sorted by GitHub stars
 - "Most Popular" section (top 12 by stars) on home page
 - Category pages sorted by stars descending

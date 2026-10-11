@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Home page: replaced stacked sections with a single filterable/sortable browse list (category chips, sort by stars/forks/newest/name, show 10/50/all)
 
 ### Fixed
+- Title now displays as "Sloppy Seconds" (was lowercase); redundant nav hidden on home, kept as back-link on sub-pages
 - Project body content not rendering (Astro glob loader exposes HTML at `entry.rendered.html`, not `entry.body`)
 
 ### Removed

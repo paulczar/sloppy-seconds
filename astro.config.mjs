@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 // NOTE: `site` uses a placeholder owner. Replace OWNER with the GitHub account or
 // organisation that hosts this repo before the first deploy (see README.md).
 export default defineConfig({
-  site: "https://OWNER.github.io",
+  site: "https://paulczar.github.io",
   base: "/sloppy-seconds",
   output: "static",
   integrations: [vue()],

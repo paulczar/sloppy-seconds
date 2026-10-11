@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: claimed
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: alpha
 added: 2026-10-10
 description: Rashid — open-source alternative to Apple Rosetta.
 ---

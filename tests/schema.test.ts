@@ -16,7 +16,6 @@ const base = {
   cleanroom_claim: 'self-reported',
   inputs_claimed: ['public-specs', 'observed-behaviour'],
   claim_source: 'https://github.com/storytold/photocraft#provenance',
-  status: 'early-alpha',
   added: '2026-10-09',
   description: 'Native Rust image editor that opens real PSD files.',
 };

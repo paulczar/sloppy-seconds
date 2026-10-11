@@ -12,7 +12,6 @@ type: language-port
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: []
-status: pre-alpha
 added: 2026-10-10
 description: Rustygb — open-source alternative to Game Boy emulator.
 ---

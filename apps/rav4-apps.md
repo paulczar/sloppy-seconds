@@ -12,7 +12,6 @@ type: similar
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: []
-status: alpha
 added: 2026-10-10
 description: Rav4 Apps — open-source alternative to Car head-unit apps.
 ---

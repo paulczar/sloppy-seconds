@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Removed
+- `status` field (pre-alpha/alpha/beta/stable) — subjective, unverifiable; GitHub stats signal maturity better
+
 ### Added
 - GitHub-style star/fork pill badges on cards and detail pages (SVG icons, repo-header look)
 - Collapsible per-category sections on home page, sorted by GitHub stars

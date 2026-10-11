@@ -46,7 +46,6 @@ const { stats } = entry;
       )}
       <StatChip label="license" value={entry.license} />
       <StatChip label="lang" value={entry.language} />
-      <StatChip label="status" value={entry.status} />
     </div>
     {stats && <p class="as-of">as of {new Date(stats.fetched_at).toLocaleDateString()}</p>}
     {!stats && <p class="as-of">stats pending</p>}

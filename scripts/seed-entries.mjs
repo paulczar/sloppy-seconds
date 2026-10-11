@@ -98,7 +98,7 @@ async function main() {
     const claimSource = entry.claim_source || null;
     const cleanroomClaim = claimSource ? 'self-reported' : 'not-claimed';
 
-    rows.push({ slug: finalSlug, name, modelled_on: entry.modelled_on, vendor: entry.vendor, category: entry.category, type: entry.type, ai_assisted: entry.ai_assisted, status: entry.status, license, language, description, cleanroomClaim, claimSource, repo: entry.repo });
+    rows.push({ slug: finalSlug, name, modelled_on: entry.modelled_on, vendor: entry.vendor, category: entry.category, type: entry.type, ai_assisted: entry.ai_assisted, license, language, description, cleanroomClaim, claimSource, repo: entry.repo });
   }
 
   // Print table
@@ -137,7 +137,6 @@ async function main() {
       cleanroom_claim: r.cleanroomClaim,
       inputs_claimed: inputsClaimed,
       ...(r.claimSource ? { claim_source: r.claimSource } : {}),
-      status: r.status,
       added: new Date().toISOString().slice(0, 10),
       description: r.description || `${r.name} — open-source alternative to ${r.modelled_on}.`,
     };

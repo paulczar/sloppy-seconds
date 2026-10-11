@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: beta
 added: 2026-10-10
 description: Puremp — open-source alternative to MPFR bignum library.
 ---

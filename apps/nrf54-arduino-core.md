@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: alpha
 added: 2026-10-10
 description: Nrf54 Arduino Core — open-source alternative to Arduino core for nRF54.
 ---

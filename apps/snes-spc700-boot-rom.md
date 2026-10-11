@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: pre-alpha
 added: 2026-10-10
 description: Snes Spc700 Boot Rom — open-source alternative to SNES SPC700 boot ROM.
 ---

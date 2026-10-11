@@ -12,7 +12,6 @@ type: clone
 ai_assisted: verified
 cleanroom_claim: not-claimed
 inputs_claimed: []
-status: alpha
 added: 2026-10-10
 description: Open Claude Code — open-source alternative to Claude Code CLI.
 ---

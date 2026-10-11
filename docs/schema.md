@@ -17,7 +17,6 @@ Every project in the directory is a single file at `apps/<slug>.md` with YAML fr
 | `type` | enum | Provenance type: `cleanroom`, `clone`, `similar`, `language-port`, `ai-rebuild`. |
 | `ai_assisted` | enum | `verified`, `claimed`, or `unverified`. How confident we are that AI was used. |
 | `cleanroom_claim` | enum | `self-reported`, `verified`, or `not-claimed`. Records only what the project itself says. |
-| `status` | enum | Maturity: `pre-alpha`, `early-alpha`, `alpha`, `beta`, `stable`. |
 | `added` | date | ISO date (`YYYY-MM-DD`) when the entry was added to the directory. |
 | `description` | string | 1–3 sentence summary shown on cards and detail pages. |
 

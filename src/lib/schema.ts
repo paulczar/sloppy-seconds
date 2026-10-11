@@ -27,14 +27,6 @@ export const CleanroomClaimSchema = z.enum([
   'not-claimed',
 ]);
 
-export const StatusSchema = z.enum([
-  'pre-alpha',
-  'early-alpha',
-  'alpha',
-  'beta',
-  'stable',
-]);
-
 export const PlatformSchema = z.enum([
   'macos',
   'windows',
@@ -69,7 +61,6 @@ export const EntrySchema = z
     cleanroom_claim: CleanroomClaimSchema,
     inputs_claimed: z.array(InputsClaimedSchema).default([]),
     claim_source: z.url().optional(),
-    status: StatusSchema,
     added: z.coerce.date(),
     description: z.string(),
   })

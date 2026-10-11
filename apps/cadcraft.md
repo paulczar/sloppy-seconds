@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: verified
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: early-alpha
 added: 2026-10-10
 description: Cadcraft — open-source alternative to AutoCAD.
 ---

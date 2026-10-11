@@ -12,7 +12,6 @@ type: clone
 ai_assisted: claimed
 cleanroom_claim: not-claimed
 inputs_claimed: []
-status: alpha
 added: 2026-10-10
 description: Macintosh — open-source alternative to Classic Macintosh OS.
 ---

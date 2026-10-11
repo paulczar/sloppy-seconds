@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: alpha
 added: 2026-10-10
 description: Rongta F11 Open — open-source alternative to Rongta F11 printer driver.
 ---

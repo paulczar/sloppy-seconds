@@ -12,7 +12,6 @@ type: cleanroom
 ai_assisted: unverified
 cleanroom_claim: not-claimed
 inputs_claimed: [public-specs, observed-behaviour]
-status: pre-alpha
 added: 2026-10-10
 description: Tier0 Goldsrc — open-source alternative to CS1.6 tier0.dll.
 ---

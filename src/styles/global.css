@@ -503,3 +503,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
   .overlay { padding: 0; }
   .overlay__panel { max-height: 100vh; border-radius: 0; border: none; }
 }
+
+/* Category emoji */
+.app-card__emoji {
+  margin-right: 0.4rem;
+}

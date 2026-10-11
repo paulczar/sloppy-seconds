@@ -1,6 +1,7 @@
 ---
 import StatChip from './StatChip.astro';
 import { withBase } from '../lib/url';
+import { categoryEmoji } from '../lib/categories';
 import type { EntryWithStats } from '../lib/types';
 
 interface Props {
@@ -12,7 +13,7 @@ const { stats } = entry;
 
 <a href={withBase(`/app/${entry.slug}/`)} class="app-card" data-slug={entry.slug} data-category={entry.category} data-stars={stats?.stars ?? 0} data-forks={stats?.forks ?? 0} data-added={entry.added.toISOString().slice(0,10)} data-name={entry.name.toLowerCase()}>
   <div class="app-card__header">
-    <h3 class="app-card__name">{entry.name}</h3>
+    <h3 class="app-card__name"><span class="app-card__emoji" aria-hidden="true">{categoryEmoji(entry.category)}</span>{entry.name}</h3>
     {stats && (
       <div class="gh-stats">
         <span class="gh-stat">

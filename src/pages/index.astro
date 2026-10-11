@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import AppCard from '../components/AppCard.astro';
 import { loadEntries, categoryCounts, totalStars, toClientEntries } from '../lib/entries';
+import { categoryEmoji } from '../lib/categories';
 
 const entries = await loadEntries();
 const counts = categoryCounts(entries);
@@ -29,11 +30,11 @@ const clientData = JSON.stringify(toClientEntries(entries));
     <div class="toolbar">
       <div class="filters" role="group" aria-label="Filter by category">
         <button class="filter-chip is-active" data-filter="all" type="button">
-          All <span class="filter-chip__count">{entries.length}</span>
+          🌐 All <span class="filter-chip__count">{entries.length}</span>
         </button>
         {counts.map(({ category, count }) => (
           <button class="filter-chip" data-filter={category} type="button">
-            {category} <span class="filter-chip__count">{count}</span>
+            {categoryEmoji(category)} {category} <span class="filter-chip__count">{count}</span>
           </button>
         ))}
       </div>

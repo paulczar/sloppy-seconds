@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### Changed
+- Home page: replaced stacked sections with a single filterable/sortable browse list (category chips, sort by stars/forks/newest/name, show 10/50/all)
+
 ### Removed
 - `status` field (pre-alpha/alpha/beta/stable) — subjective, unverifiable; GitHub stats signal maturity better
 

@@ -10,7 +10,7 @@ const { entry } = Astro.props;
 const { stats } = entry;
 ---
 
-<a href={withBase(`/app/${entry.slug}/`)} class="app-card">
+<a href={withBase(`/app/${entry.slug}/`)} class="app-card" data-category={entry.category} data-stars={stats?.stars ?? 0} data-forks={stats?.forks ?? 0} data-added={entry.added.toISOString().slice(0,10)} data-name={entry.name.toLowerCase()}>
   <div class="app-card__header">
     <h3 class="app-card__name">{entry.name}</h3>
     {stats && (

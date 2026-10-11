@@ -2,21 +2,13 @@
 import Base from '../layouts/Base.astro';
 import AppCard from '../components/AppCard.astro';
 import { loadEntries, categoryCounts, totalStars } from '../lib/entries';
-import { withBase } from '../lib/url';
 
 const entries = await loadEntries();
 const counts = categoryCounts(entries);
 const stars = totalStars(entries);
 const vendors = new Set(entries.map(e => e.vendor)).size;
+// Default sort: most popular (stars desc). Every card is rendered; JS filters/sorts/limits.
 const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.stars ?? 0));
-const top = byStars.slice(0, 12);
-const newest = [...entries].sort((a, b) => b.added.getTime() - a.added.getTime()).slice(0, 8);
-
-// Group entries by category, sorted by stars within each group
-const categoriesWithEntries = counts.map(({ category }) => ({
-  category,
-  entries: byStars.filter(e => e.category === category),
-}));
 ---
 
 <Base title="Home" description={`A directory of ${entries.length} AI-assisted open-source replacements for commercial software.`}>
@@ -32,44 +24,103 @@ const categoriesWithEntries = counts.map(({ category }) => ({
     </div>
   </section>
 
-  <section class="categories">
-    <h2>Categories</h2>
-    <div class="category-grid">
-      {counts.map(({ category, count }) => (
-        <a href={withBase(`/c/${category}/`)} class="category-card">
-          <span class="category-card__name">{category}</span>
-          <span class="category-card__count">{count}</span>
-        </a>
+  <section class="browse" data-default-limit="10">
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="Filter by category">
+        <button class="filter-chip is-active" data-filter="all" type="button">
+          All <span class="filter-chip__count">{entries.length}</span>
+        </button>
+        {counts.map(({ category, count }) => (
+          <button class="filter-chip" data-filter={category} type="button">
+            {category} <span class="filter-chip__count">{count}</span>
+          </button>
+        ))}
+      </div>
+
+      <div class="controls">
+        <label class="control">
+          <span class="control__label">Sort</span>
+          <select id="sort-select" aria-label="Sort order">
+            <option value="stars">Most stars</option>
+            <option value="forks">Most forks</option>
+            <option value="newest">Newest</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+        <div class="limit-group" role="group" aria-label="Show limit">
+          <button class="limit-btn is-active" data-limit="10" type="button">10</button>
+          <button class="limit-btn" data-limit="50" type="button">50</button>
+          <button class="limit-btn" data-limit="all" type="button">All</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="result-count" aria-live="polite"></p>
+
+    <div class="card-grid" id="app-grid">
+      {byStars.map(entry => (
+        <AppCard entry={entry} />
       ))}
     </div>
   </section>
 
-  <section class="top">
-    <h2>Most Popular</h2>
-    <div class="card-grid">
-      {top.map(entry => <AppCard entry={entry} />)}
-    </div>
-  </section>
+  <script>
+    const grid = document.querySelector('#app-grid');
+    const browse = document.querySelector('.browse');
+    const resultCount = document.querySelector('.result-count');
+    // Keep every card in memory; the DOM only ever holds the currently-shown slice.
+    const allCards = Array.from(grid.querySelectorAll('.app-card'));
+    let activeFilter = 'all';
+    let activeLimit = parseInt(browse.dataset.defaultLimit || '10', 10);
+    let activeSort = 'stars';
 
-  <section class="by-category">
-    {categoriesWithEntries.map(({ category, entries: catEntries }) => (
-      <details class="category-section" open={category === 'creative'}>
-        <summary class="category-section__header">
-          <span class="category-section__title">{category}</span>
-          <span class="category-section__count">{catEntries.length}</span>
-          <a href={withBase(`/c/${category}/`)} class="category-section__link" onclick={(e) => e.preventDefault()}>view all →</a>
-        </summary>
-        <div class="card-grid">
-          {catEntries.map(entry => <AppCard entry={entry} />)}
-        </div>
-      </details>
-    ))}
-  </section>
+    function apply() {
+      // Filter
+      const visible = allCards.filter((c) =>
+        activeFilter === 'all' || c.dataset.category === activeFilter
+      );
+      // Sort (copy so we don't mutate the master list)
+      const sorted = [...visible].sort((a, b) => {
+        switch (activeSort) {
+          case 'forks': return (+b.dataset.forks) - (+a.dataset.forks);
+          case 'newest': return b.dataset.added.localeCompare(a.dataset.added);
+          case 'name': return a.dataset.name.localeCompare(b.dataset.name);
+          default: return (+b.dataset.stars) - (+a.dataset.stars);
+        }
+      });
+      // Limit + rewrite DOM from the master list (safe to re-append any card)
+      const limit = activeLimit === 'all' ? Infinity : activeLimit;
+      const shown = sorted.slice(0, limit);
+      grid.replaceChildren(...shown);
+      // Count text
+      const total = visible.length;
+      const showing = Math.min(total, limit);
+      resultCount.textContent = `${showing} of ${total} project${total !== 1 ? 's' : ''}`;
+    }
 
-  <section class="newest">
-    <h2>Newest</h2>
-    <div class="card-grid">
-      {newest.map(entry => <AppCard entry={entry} />)}
-    </div>
-  </section>
+    document.querySelectorAll('.filter-chip').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-chip').forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeFilter = btn.dataset.filter;
+        apply();
+      });
+    });
+
+    document.querySelectorAll('.limit-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.limit-btn').forEach((b) => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        activeLimit = btn.dataset.limit === 'all' ? 'all' : parseInt(btn.dataset.limit, 10);
+        apply();
+      });
+    });
+
+    document.querySelector('#sort-select').addEventListener('change', (e) => {
+      activeSort = e.target.value;
+      apply();
+    });
+
+    apply();
+  </script>
 </Base>

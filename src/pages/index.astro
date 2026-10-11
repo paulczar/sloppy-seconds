@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import AppCard from '../components/AppCard.astro';
-import { loadEntries, categoryCounts, totalStars } from '../lib/entries';
+import { loadEntries, categoryCounts, totalStars, toClientEntries } from '../lib/entries';
 
 const entries = await loadEntries();
 const counts = categoryCounts(entries);
@@ -9,6 +9,7 @@ const stars = totalStars(entries);
 const vendors = new Set(entries.map(e => e.vendor)).size;
 // Default sort: most popular (stars desc). Every card is rendered; JS filters/sorts/limits.
 const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.stars ?? 0));
+const clientData = JSON.stringify(toClientEntries(entries));
 ---
 
 <Base title="Home" description={`A directory of ${entries.length} AI-assisted open-source replacements for commercial software.`}>
@@ -64,22 +65,29 @@ const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.st
     </div>
   </section>
 
-  <script>
+  <!-- Detail overlay -->
+  <div class="overlay" id="overlay" hidden aria-hidden="true">
+    <div class="overlay__backdrop" data-close></div>
+    <div class="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+      <button class="overlay__close" data-close aria-label="Close">×</button>
+      <div class="overlay__content" id="overlay-content"></div>
+    </div>
+  </div>
+
+  <script define:vars={{ clientData }}>
+    const DATA = JSON.parse(clientData);
     const grid = document.querySelector('#app-grid');
     const browse = document.querySelector('.browse');
     const resultCount = document.querySelector('.result-count');
-    // Keep every card in memory; the DOM only ever holds the currently-shown slice.
     const allCards = Array.from(grid.querySelectorAll('.app-card'));
     let activeFilter = 'all';
     let activeLimit = parseInt(browse.dataset.defaultLimit || '10', 10);
     let activeSort = 'stars';
 
     function apply() {
-      // Filter
       const visible = allCards.filter((c) =>
         activeFilter === 'all' || c.dataset.category === activeFilter
       );
-      // Sort (copy so we don't mutate the master list)
       const sorted = [...visible].sort((a, b) => {
         switch (activeSort) {
           case 'forks': return (+b.dataset.forks) - (+a.dataset.forks);
@@ -88,16 +96,98 @@ const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.st
           default: return (+b.dataset.stars) - (+a.dataset.stars);
         }
       });
-      // Limit + rewrite DOM from the master list (safe to re-append any card)
       const limit = activeLimit === 'all' ? Infinity : activeLimit;
       const shown = sorted.slice(0, limit);
       grid.replaceChildren(...shown);
-      // Count text
       const total = visible.length;
       const showing = Math.min(total, limit);
       resultCount.textContent = `${showing} of ${total} project${total !== 1 ? 's' : ''}`;
     }
 
+    // --- Overlay detail view ---
+    const overlay = document.querySelector('#overlay');
+    const overlayContent = document.querySelector('#overlay-content');
+    let lastFocused = null;
+
+    function esc(s) {
+      const d = document.createElement('div');
+      d.textContent = s == null ? '' : String(s);
+      return d.innerHTML;
+    }
+
+    function fmt(n) { return n != null ? Number(n).toLocaleString() : null; }
+
+    function renderDetail(slug) {
+      const e = DATA[slug];
+      if (!e) return;
+      const chips = [];
+      if (e.license) chips.push(`<span class="stat-chip"><span class="stat-chip__label">license</span><span class="stat-chip__value">${esc(e.license)}</span></span>`);
+      if (e.language) chips.push(`<span class="stat-chip"><span class="stat-chip__label">lang</span><span class="stat-chip__value">${esc(e.language)}</span></span>`);
+
+      const ghStats = (e.stars != null || e.forks != null) ? `
+        <div class="gh-stats gh-stats--large">
+          ${e.stars != null ? `<span class="gh-stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"/></svg>${fmt(e.stars)}</span>` : ''}
+          ${e.forks != null ? `<span class="gh-stat"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/></svg>${fmt(e.forks)}</span>` : ''}
+        </div>` : '';
+
+      const asOf = e.fetched_at
+        ? `<p class="as-of">as of ${new Date(e.fetched_at).toLocaleDateString()}</p>`
+        : `<p class="as-of">stats pending</p>`;
+
+      const provRows = [
+        ['Type', e.type],
+        ['AI-assisted', e.ai_assisted],
+        ['Cleanroom claim', e.cleanroom_claim],
+      ];
+      if (e.inputs_claimed && e.inputs_claimed.length) provRows.push(['Inputs claimed', e.inputs_claimed.join(', ')]);
+      const provHtml = provRows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')
+        + (e.claim_source ? `<dt>Claim source</dt><dd><a href="${esc(e.claim_source)}" target="_blank" rel="noopener noreferrer">${esc(e.claim_source)}</a></dd>` : '');
+
+      overlayContent.innerHTML = `
+        <header class="detail-header">
+          <h1 id="overlay-title">${esc(e.name)}</h1>
+          <p class="detail-mapping"><span>${esc(e.modelled_on)}</span><span class="app-card__arrow">→</span><span>${esc(e.name)}</span></p>
+          <div class="detail-chips">${ghStats}${chips.join('')}</div>
+          ${asOf}
+        </header>
+        <section class="provenance-panel"><h2>Provenance</h2><dl>${provHtml}</dl></section>
+        <section class="detail-body">${e.body || ''}</section>
+        <div class="overlay__actions">
+          <a href="${esc(e.repo)}" target="_blank" rel="noopener noreferrer" class="repo-link">View on GitHub →</a>
+        </div>
+      `;
+    }
+
+    function openOverlay(slug) {
+      renderDetail(slug);
+      lastFocused = document.activeElement;
+      overlay.hidden = false;
+      overlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      overlay.querySelector('.overlay__close').focus();
+    }
+
+    function closeOverlay() {
+      overlay.hidden = true;
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    // Intercept card clicks (event delegation — survives DOM re-appends)
+    grid.addEventListener('click', (ev) => {
+      const card = ev.target.closest('.app-card');
+      if (!card) return;
+      ev.preventDefault();
+      openOverlay(card.dataset.slug);
+    });
+
+    overlay.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeOverlay));
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape' && !overlay.hidden) closeOverlay();
+    });
+
+    // Filter / sort / limit controls
     document.querySelectorAll('.filter-chip').forEach((btn) => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-chip').forEach((b) => b.classList.remove('is-active'));
@@ -106,7 +196,6 @@ const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.st
         apply();
       });
     });
-
     document.querySelectorAll('.limit-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.limit-btn').forEach((b) => b.classList.remove('is-active'));
@@ -115,7 +204,6 @@ const byStars = [...entries].sort((a, b) => (b.stats?.stars ?? 0) - (a.stats?.st
         apply();
       });
     });
-
     document.querySelector('#sort-select').addEventListener('change', (e) => {
       activeSort = e.target.value;
       apply();

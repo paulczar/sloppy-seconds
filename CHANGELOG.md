@@ -5,7 +5,11 @@ All notable changes to this project will be documented in this file.
 ## [unreleased]
 
 ### Changed
+- Clicking a project opens an in-page overlay instead of navigating — filter/sort/limit state preserved (single-page browsing)
 - Home page: replaced stacked sections with a single filterable/sortable browse list (category chips, sort by stars/forks/newest/name, show 10/50/all)
+
+### Fixed
+- Project body content not rendering (Astro glob loader exposes HTML at `entry.rendered.html`, not `entry.body`)
 
 ### Removed
 - `status` field (pre-alpha/alpha/beta/stable) — subjective, unverifiable; GitHub stats signal maturity better

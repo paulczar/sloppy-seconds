@@ -20,6 +20,9 @@ export async function loadEntries(): Promise<EntryWithStats[]> {
 
   return entries.map((entry) => ({
     ...entry.data,
+    // `rendered` and `body` live on the entry object, not in entry.data
+    rendered: (entry as any).rendered,
+    body: (entry as any).body,
     stats: statsFile.entries[entry.data.slug],
   }));
 }
@@ -44,4 +47,54 @@ export function modelledOnGroups(entries: EntryWithStats[]): { modelled_on: stri
 
 export function totalStars(entries: EntryWithStats[]): number {
   return entries.reduce((sum, e) => sum + (e.stats?.stars ?? 0), 0);
+}
+
+// Serialize entries for client-side use (overlay detail view).
+// Only includes fields the overlay renders — keeps the JSON small.
+export type ClientEntry = {
+  slug: string;
+  name: string;
+  modelled_on: string;
+  category: string;
+  vendor: string;
+  repo: string;
+  license: string | null;
+  language: string | null;
+  type: string;
+  ai_assisted: string;
+  cleanroom_claim: string;
+  inputs_claimed: string[];
+  claim_source?: string;
+  description: string;
+  body: string;
+  stars: number | null;
+  forks: number | null;
+  fetched_at: string | null;
+};
+
+export function toClientEntries(entries: EntryWithStats[]): Record<string, ClientEntry> {
+  const out: Record<string, ClientEntry> = {};
+  for (const e of entries) {
+    out[e.slug] = {
+      slug: e.slug,
+      name: e.name,
+      modelled_on: e.modelled_on,
+      category: e.category,
+      vendor: e.vendor,
+      repo: e.repo,
+      license: e.license,
+      language: e.language,
+      type: e.type,
+      ai_assisted: e.ai_assisted,
+      cleanroom_claim: e.cleanroom_claim,
+      inputs_claimed: e.inputs_claimed,
+      claim_source: e.claim_source,
+      description: e.description,
+      body: e.rendered?.html ?? '',
+      stars: e.stats?.stars ?? null,
+      forks: e.stats?.forks ?? null,
+      fetched_at: e.stats?.fetched_at ?? null,
+    };
+  }
+  return out;
 }

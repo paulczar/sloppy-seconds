@@ -53,9 +53,9 @@ const { stats } = entry;
 
   <ProvenancePanel entry={entry} />
 
-  <section class="detail-body">
-    <Fragment set:html={entry.body} />
-  </section>
+  {entry.rendered?.html && (
+    <section class="detail-body" set:html={entry.rendered.html} />
+  )}
 
   <a href={entry.repo} target="_blank" rel="noopener noreferrer" class="repo-link">
     View on GitHub →

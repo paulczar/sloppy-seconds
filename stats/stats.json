@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T00:14:00.873Z",
+  "generated_at": "2026-11-06T06:44:49.880Z",
   "entries": {
     "ariec61850": {
       "stars": 8,
@@ -11,7 +11,7 @@
       "language": "C#",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:52.002Z"
+      "fetched_at": "2026-11-06T06:44:40.637Z"
     },
     "assettocorsa-competizione-server": {
       "stars": 16,
@@ -23,7 +23,7 @@
       "language": "C",
       "default_branch": "main",
       "latest_release": "0.3.270",
-      "fetched_at": "2026-11-06T00:13:51.919Z"
+      "fetched_at": "2026-11-06T06:44:40.595Z"
     },
     "bl2-re-based": {
       "stars": 10,
@@ -35,19 +35,19 @@
       "language": "Python",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:52.076Z"
+      "fetched_at": "2026-11-06T06:44:40.612Z"
     },
     "cadcraft": {
-      "stars": 7702,
-      "forks": 3291,
-      "open_issues": 1209,
-      "pushed_at": "2026-11-05T23:31:44Z",
+      "stars": 7721,
+      "forks": 3297,
+      "open_issues": 1193,
+      "pushed_at": "2026-11-06T03:36:23Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.17.1",
-      "fetched_at": "2026-11-06T00:13:52.025Z"
+      "fetched_at": "2026-11-06T06:44:40.598Z"
     },
     "capplusplus": {
       "stars": 0,
@@ -59,7 +59,7 @@
       "language": "Python",
       "default_branch": "main",
       "latest_release": "v0.2.0",
-      "fetched_at": "2026-11-06T00:13:52.480Z"
+      "fetched_at": "2026-11-06T06:44:41.049Z"
     },
     "chlorine-server": {
       "stars": 18,
@@ -71,7 +71,7 @@
       "language": "HIP",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:52.597Z"
+      "fetched_at": "2026-11-06T06:44:41.107Z"
     },
     "claw-code-main": {
       "stars": 0,
@@ -83,7 +83,7 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:52.778Z"
+      "fetched_at": "2026-11-06T06:44:41.230Z"
     },
     "catcard": {
       "stars": 15,
@@ -95,7 +95,7 @@
       "language": "Rust",
       "default_branch": "master",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:52.634Z"
+      "fetched_at": "2026-11-06T06:44:41.152Z"
     },
     "codex-artifacts": {
       "stars": 1,
@@ -107,7 +107,7 @@
       "language": "TypeScript",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:53.361Z"
+      "fetched_at": "2026-11-06T06:44:41.711Z"
     },
     "debug-clean-room-rebuild-proof": {
       "stars": 0,
@@ -119,7 +119,7 @@
       "language": "JavaScript",
       "default_branch": "main",
       "latest_release": "v0.1.0",
-      "fetched_at": "2026-11-06T00:13:53.216Z"
+      "fetched_at": "2026-11-06T06:44:41.642Z"
     },
     "claw-code-parity": {
       "stars": 0,
@@ -131,43 +131,43 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:53.355Z"
+      "fetched_at": "2026-11-06T06:44:41.761Z"
     },
     "deckcraft": {
-      "stars": 4631,
-      "forks": 2672,
-      "open_issues": 766,
+      "stars": 4638,
+      "forks": 2675,
+      "open_issues": 774,
       "pushed_at": "2026-11-05T16:23:44Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.15.1",
-      "fetched_at": "2026-11-06T00:13:53.252Z"
+      "fetched_at": "2026-11-06T06:44:41.675Z"
     },
     "designcraft": {
-      "stars": 5117,
-      "forks": 3538,
-      "open_issues": 824,
+      "stars": 5121,
+      "forks": 3540,
+      "open_issues": 840,
       "pushed_at": "2026-11-05T23:41:06Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.17.2",
-      "fetched_at": "2026-11-06T00:13:53.843Z"
+      "fetched_at": "2026-11-06T06:44:42.229Z"
     },
     "filmcraft": {
-      "stars": 17608,
-      "forks": 7256,
-      "open_issues": 2061,
+      "stars": 17633,
+      "forks": 7259,
+      "open_issues": 2070,
       "pushed_at": "2026-11-05T23:25:55Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.17.1",
-      "fetched_at": "2026-11-06T00:13:53.874Z"
+      "fetched_at": "2026-11-06T06:44:42.239Z"
     },
     "diagonal-glo-qc": {
       "stars": 1,
@@ -179,19 +179,19 @@
       "language": "Rust",
       "default_branch": "master",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:54.082Z"
+      "fetched_at": "2026-11-06T06:44:42.223Z"
     },
     "effectcraft": {
-      "stars": 8480,
-      "forks": 4506,
-      "open_issues": 1043,
-      "pushed_at": "2026-11-05T23:20:44Z",
+      "stars": 8487,
+      "forks": 4509,
+      "open_issues": 1056,
+      "pushed_at": "2026-11-06T01:26:24Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.21.1",
-      "fetched_at": "2026-11-06T00:13:53.870Z"
+      "fetched_at": "2026-11-06T06:44:42.259Z"
     },
     "frankennumpy": {
       "stars": 0,
@@ -242,55 +242,55 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:54.570Z"
+      "fetched_at": "2026-11-06T06:44:42.673Z"
     },
     "frankenredis": {
       "stars": 28,
       "forks": 6,
       "open_issues": 5,
-      "pushed_at": "2026-11-05T21:33:50Z",
+      "pushed_at": "2026-11-06T05:36:45Z",
       "archived": false,
       "license": null,
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.1.2",
-      "fetched_at": "2026-11-06T00:13:54.957Z"
+      "fetched_at": "2026-11-06T06:44:43.074Z"
     },
     "frankenpandas": {
       "stars": 22,
       "forks": 8,
       "open_issues": 5,
-      "pushed_at": "2026-11-05T21:14:43Z",
+      "pushed_at": "2026-11-06T05:36:51Z",
       "archived": false,
       "license": null,
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.6.0",
-      "fetched_at": "2026-11-06T00:13:55.025Z"
+      "fetched_at": "2026-11-06T06:44:43.062Z"
     },
     "gridcraft": {
-      "stars": 7205,
-      "forks": 3354,
-      "open_issues": 1770,
+      "stars": 7218,
+      "forks": 3361,
+      "open_issues": 1782,
       "pushed_at": "2026-11-05T21:24:59Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.16.1",
-      "fetched_at": "2026-11-06T00:13:55.224Z"
+      "fetched_at": "2026-11-06T06:44:43.172Z"
     },
     "frankentorch": {
       "stars": 16,
       "forks": 9,
       "open_issues": 5,
-      "pushed_at": "2026-11-04T22:27:48Z",
+      "pushed_at": "2026-11-06T05:33:29Z",
       "archived": false,
       "license": null,
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:55.007Z"
+      "fetched_at": "2026-11-06T06:44:43.125Z"
     },
     "hestia": {
       "stars": 3,
@@ -302,7 +302,7 @@
       "language": "Python",
       "default_branch": "master",
       "latest_release": "v1.7.2",
-      "fetched_at": "2026-11-06T00:13:55.595Z"
+      "fetched_at": "2026-11-06T06:44:43.633Z"
     },
     "jocforge": {
       "stars": 5,
@@ -314,19 +314,19 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:55.821Z"
+      "fetched_at": "2026-11-06T06:44:44.634Z"
     },
     "lightcraft": {
-      "stars": 15547,
-      "forks": 5973,
-      "open_issues": 1481,
-      "pushed_at": "2026-11-05T23:35:26Z",
+      "stars": 15559,
+      "forks": 5975,
+      "open_issues": 1489,
+      "pushed_at": "2026-11-06T01:36:08Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.18.1",
-      "fetched_at": "2026-11-06T00:13:55.661Z"
+      "fetched_at": "2026-11-06T06:44:43.619Z"
     },
     "infamous": {
       "stars": 14,
@@ -338,7 +338,7 @@
       "language": null,
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:55.764Z"
+      "fetched_at": "2026-11-06T06:44:43.738Z"
     },
     "macintosh": {
       "stars": 0,
@@ -350,7 +350,7 @@
       "language": "TypeScript",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:56.316Z"
+      "fetched_at": "2026-11-06T06:44:45.120Z"
     },
     "llvm-native": {
       "stars": 0,
@@ -362,31 +362,31 @@
       "language": "Rust",
       "default_branch": "master",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:56.425Z"
+      "fetched_at": "2026-11-06T06:44:45.163Z"
     },
     "mica-nt": {
       "stars": 1,
       "forks": 0,
       "open_issues": 0,
-      "pushed_at": "2026-11-05T23:36:56Z",
+      "pushed_at": "2026-11-06T04:09:51Z",
       "archived": false,
       "license": "MIT",
       "language": "C++",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:56.387Z"
+      "fetched_at": "2026-11-06T06:44:45.096Z"
     },
     "lopsy-art": {
       "stars": 15,
       "forks": 1,
-      "open_issues": 129,
-      "pushed_at": "2026-11-05T23:33:50Z",
+      "open_issues": 114,
+      "pushed_at": "2026-11-06T05:45:23Z",
       "archived": false,
       "license": null,
       "language": "TypeScript",
       "default_branch": "main",
       "latest_release": "screenshot-temp",
-      "fetched_at": "2026-11-06T00:13:56.335Z"
+      "fetched_at": "2026-11-06T06:44:45.159Z"
     },
     "open-atomic-bomberman-97": {
       "stars": 4,
@@ -398,7 +398,7 @@
       "language": "C++",
       "default_branch": "main",
       "latest_release": "v1.0.0",
-      "fetched_at": "2026-11-06T00:13:56.849Z"
+      "fetched_at": "2026-11-06T06:44:45.599Z"
     },
     "open-claude-code-v2": {
       "stars": 4,
@@ -410,7 +410,7 @@
       "language": "TypeScript",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:57.073Z"
+      "fetched_at": "2026-11-06T06:44:45.648Z"
     },
     "nrf54-arduino-core": {
       "stars": 51,
@@ -422,7 +422,7 @@
       "language": "C",
       "default_branch": "main",
       "latest_release": "v1.0.23",
-      "fetched_at": "2026-11-06T00:13:56.884Z"
+      "fetched_at": "2026-11-06T06:44:45.573Z"
     },
     "omega-strain-reimplementation": {
       "stars": 1,
@@ -434,31 +434,31 @@
       "language": "C++",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:56.991Z"
+      "fetched_at": "2026-11-06T06:44:45.660Z"
     },
     "open-claude-code": {
       "stars": 560,
       "forks": 170,
-      "open_issues": 15,
+      "open_issues": 16,
       "pushed_at": "2026-10-28T03:09:01Z",
       "archived": false,
       "license": "MIT",
       "language": "JavaScript",
       "default_branch": "main",
       "latest_release": "v2.1.3",
-      "fetched_at": "2026-11-06T00:13:57.527Z"
+      "fetched_at": "2026-11-06T06:44:46.030Z"
     },
     "pdfcraft": {
-      "stars": 19707,
-      "forks": 7360,
-      "open_issues": 3207,
-      "pushed_at": "2026-11-05T22:47:46Z",
+      "stars": 19733,
+      "forks": 7372,
+      "open_issues": 3233,
+      "pushed_at": "2026-11-06T03:00:26Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.18.2",
-      "fetched_at": "2026-11-06T00:13:57.525Z"
+      "fetched_at": "2026-11-06T06:44:46.492Z"
     },
     "open-joc": {
       "stars": 264,
@@ -470,7 +470,7 @@
       "language": "Rust",
       "default_branch": "master",
       "latest_release": "v0.20.1",
-      "fetched_at": "2026-11-06T00:13:57.499Z"
+      "fetched_at": "2026-11-06T06:44:46.054Z"
     },
     "open-zcode-computer-use": {
       "stars": 0,
@@ -482,7 +482,7 @@
       "language": "Swift",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:57.568Z"
+      "fetched_at": "2026-11-06T06:44:46.216Z"
     },
     "pixellect": {
       "stars": 0,
@@ -511,28 +511,28 @@
       "stale": true
     },
     "photocraft": {
-      "stars": 77199,
-      "forks": 13689,
-      "open_issues": 3646,
-      "pushed_at": "2026-11-06T00:07:36Z",
+      "stars": 77291,
+      "forks": 13696,
+      "open_issues": 3654,
+      "pushed_at": "2026-11-06T02:22:25Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.20.2",
-      "fetched_at": "2026-11-06T00:13:58.052Z"
+      "fetched_at": "2026-11-06T06:44:46.981Z"
     },
     "prism-x": {
       "stars": 0,
       "forks": 0,
       "open_issues": 0,
-      "pushed_at": "2026-11-05T23:49:22Z",
+      "pushed_at": "2026-11-06T04:15:18Z",
       "archived": false,
       "license": null,
       "language": "C++",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:57.970Z"
+      "fetched_at": "2026-11-06T06:44:47.063Z"
     },
     "rashid": {
       "stars": 4,
@@ -544,7 +544,7 @@
       "language": "C",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:58.564Z"
+      "fetched_at": "2026-11-06T06:44:47.568Z"
     },
     "psychic-cleaners": {
       "stars": 0,
@@ -556,7 +556,7 @@
       "language": "Python",
       "default_branch": "main",
       "latest_release": "v20260718-2",
-      "fetched_at": "2026-11-06T00:13:58.523Z"
+      "fetched_at": "2026-11-06T06:44:47.440Z"
     },
     "rav4-apps": {
       "stars": 0,
@@ -568,7 +568,7 @@
       "language": "Java",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:58.532Z"
+      "fetched_at": "2026-11-06T06:44:47.515Z"
     },
     "puremp": {
       "stars": 4,
@@ -580,7 +580,7 @@
       "language": "Rust",
       "default_branch": "master",
       "latest_release": "v0.3.3",
-      "fetched_at": "2026-11-06T00:13:58.591Z"
+      "fetched_at": "2026-11-06T06:44:47.501Z"
     },
     "rongta-f11-open": {
       "stars": 0,
@@ -592,7 +592,7 @@
       "language": "Go",
       "default_branch": "main",
       "latest_release": "v1.3.0",
-      "fetched_at": "2026-11-06T00:13:58.924Z"
+      "fetched_at": "2026-11-06T06:44:47.972Z"
     },
     "snes-dsp1": {
       "stars": 0,
@@ -604,7 +604,7 @@
       "language": "C++",
       "default_branch": "main",
       "latest_release": "v1.1.0",
-      "fetched_at": "2026-11-06T00:13:59.022Z"
+      "fetched_at": "2026-11-06T06:44:48.052Z"
     },
     "snaggletooth": {
       "stars": 5,
@@ -616,7 +616,7 @@
       "language": "C++",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:59.072Z"
+      "fetched_at": "2026-11-06T06:44:48.036Z"
     },
     "rustygb": {
       "stars": 0,
@@ -628,7 +628,7 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:59.151Z"
+      "fetched_at": "2026-11-06T06:44:48.116Z"
     },
     "stars-2026": {
       "stars": 2,
@@ -640,7 +640,7 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.0.1-skeleton",
-      "fetched_at": "2026-11-06T00:13:59.556Z"
+      "fetched_at": "2026-11-06T06:44:48.551Z"
     },
     "snes-spc700-boot-rom": {
       "stars": 0,
@@ -652,7 +652,7 @@
       "language": "Python",
       "default_branch": "main",
       "latest_release": "v1.0.0",
-      "fetched_at": "2026-11-06T00:13:59.609Z"
+      "fetched_at": "2026-11-06T06:44:48.553Z"
     },
     "star-trek-bridge-simulator": {
       "stars": 1,
@@ -664,31 +664,31 @@
       "language": "C",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:13:59.625Z"
+      "fetched_at": "2026-11-06T06:44:48.597Z"
     },
     "soundcraft": {
-      "stars": 4103,
-      "forks": 2514,
-      "open_issues": 594,
-      "pushed_at": "2026-11-05T23:20:58Z",
+      "stars": 4109,
+      "forks": 2517,
+      "open_issues": 599,
+      "pushed_at": "2026-11-06T06:26:57Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.17.1",
-      "fetched_at": "2026-11-06T00:13:59.600Z"
+      "fetched_at": "2026-11-06T06:44:48.821Z"
     },
     "vectorcraft": {
-      "stars": 11406,
-      "forks": 5524,
-      "open_issues": 1090,
-      "pushed_at": "2026-11-05T23:37:56Z",
+      "stars": 11416,
+      "forks": 5528,
+      "open_issues": 1085,
+      "pushed_at": "2026-11-06T06:34:56Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.21.1",
-      "fetched_at": "2026-11-06T00:14:00.217Z"
+      "fetched_at": "2026-11-06T06:44:49.269Z"
     },
     "symdev": {
       "stars": 2,
@@ -700,7 +700,7 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:14:00.152Z"
+      "fetched_at": "2026-11-06T06:44:49.316Z"
     },
     "tier0-goldsrc": {
       "stars": 0,
@@ -712,7 +712,7 @@
       "language": "C++",
       "default_branch": "main",
       "latest_release": "v1.8.4",
-      "fetched_at": "2026-11-06T00:14:00.067Z"
+      "fetched_at": "2026-11-06T06:44:49.295Z"
     },
     "wages-of-war": {
       "stars": 0,
@@ -724,7 +724,7 @@
       "language": "Rust",
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:14:00.145Z"
+      "fetched_at": "2026-11-06T06:44:49.346Z"
     },
     "zoom-f8-ble-protocol": {
       "stars": 4,
@@ -736,19 +736,19 @@
       "language": null,
       "default_branch": "main",
       "latest_release": null,
-      "fetched_at": "2026-11-06T00:14:00.706Z"
+      "fetched_at": "2026-11-06T06:44:49.880Z"
     },
     "wordcraft": {
-      "stars": 17404,
-      "forks": 4802,
-      "open_issues": 2649,
-      "pushed_at": "2026-11-05T23:27:30Z",
+      "stars": 17423,
+      "forks": 4810,
+      "open_issues": 2643,
+      "pushed_at": "2026-11-06T01:33:33Z",
       "archived": false,
       "license": "Apache-2.0",
       "language": "Rust",
       "default_branch": "main",
       "latest_release": "v0.15.2",
-      "fetched_at": "2026-11-06T00:14:00.873Z"
+      "fetched_at": "2026-11-06T06:44:49.790Z"
     }
   }
 }
